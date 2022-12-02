@@ -5,9 +5,10 @@
 <% @post.each do |post|%>
 <li>
 <%= link_to post.title, post%>
-<%= @post.title%>
-<%lol=User.where(@post.user_id)%>
-<%=lol.name%>
+<p><%=post.user_id if user_signed_in?%></p>
+<p><%= 'Sign in to see the author' if !user_signed_in?%></p>
 </li>
 <%end%>
 </ul>
+
+<%=link_to 'To write a new post!', new_post_path%>
