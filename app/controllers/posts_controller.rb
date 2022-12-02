@@ -6,16 +6,18 @@ class PostsController < ApplicationController
     end
 
     def show
+        @post=Post.find(params[:id])
     end
 
     def new
-        @post=Post.new
+        @post=current_user.posts.build
     end
 
     def create
-        @post=Post.new(post_params)
+        @post=current_user.posts.build(post_params)
+
         if @post.save
-            redirect_to index_post_path
+            redirect_to root_path
         else
             render :new, status: :unprocessable_entity
         end

@@ -5,3 +5,7 @@
     <%=form.text_field :body%>
     <%=form.submit 'publish your post'%>
 <%end%>
+
+<%if !@post.save%>
+<%= @post.errors.full_messages%>
+<%end%>

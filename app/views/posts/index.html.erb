@@ -1,1 +1,10 @@
 <h1>Here comes the Postal...posting-man!</h1>
+
+
+<ul>
+<% @post.each do |post|%>
+<li>
+<%= link_to post.title, post%>
+</li>
+<%end%>
+</ul>
