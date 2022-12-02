@@ -5,6 +5,9 @@
 <% @post.each do |post|%>
 <li>
 <%= link_to post.title, post%>
+<%= @post.title%>
+<%lol=User.where(@post.user_id)%>
+<%=lol.name%>
 </li>
 <%end%>
 </ul>
